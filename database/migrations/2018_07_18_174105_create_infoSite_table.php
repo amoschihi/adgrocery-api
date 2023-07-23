@@ -10,14 +10,14 @@ class CreateInfoSiteTable extends Migration {
 		Schema::create('infoSite', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
-			$table->string('tele', 255);
+			$table->string('tel', 255);
 			$table->string('name', 255);
 			$table->string('fax', 255);
-			$table->string('adresse', 500);
+			$table->string('address', 500);
 			$table->string('x');
 			$table->string('y');
-			$table->string('debutDeService');
-			$table->string('finDeService');
+			$table->string('serviceStart');
+			$table->string('serviceEnd');
 			$table->string('email');
 		});
 	}

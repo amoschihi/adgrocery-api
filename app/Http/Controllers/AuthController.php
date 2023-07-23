@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\loginRequest;
 use App\Http\Requests\SignUpRequest;
-use App\models\Adresse;
-use App\models\Profile;
+use App\Models\Address;
+use App\Models\Profile;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -80,13 +80,13 @@ class AuthController extends Controller
                 $profile = new Profile();
                 $profile->type = 'client';
                 auth()->user()->profile()->save($profile);
-                $adresse = new Adresse();
-                $adresse->type = 'pro';
-                $adresse2 = new Adresse();
-                $adresse2->type = 'per';
+                $address = new Address();
+                $address->type = 'pro';
+                $address2 = new Address();
+                $address2->type = 'per';
                 $profile = auth()->user()->profile()->first();
-                $profile->adresses()->save($adresse);
-                $profile->adresses()->save($adresse2);
+                $profile->adresses()->save($address);
+                $profile->adresses()->save($address2);
             }
 
             return $u;
@@ -127,13 +127,13 @@ class AuthController extends Controller
                 $profile = new Profile();
                 $profile->type = 'client';
                 auth()->user()->profile()->save($profile);
-                $adresse = new Adresse();
-                $adresse->type = 'pro';
-                $adresse2 = new Adresse();
-                $adresse2->type = 'per';
+                $address = new Address();
+                $address->type = 'pro';
+                $address2 = new Address();
+                $address2->type = 'per';
                 $profile = auth()->user()->profile()->first();
-                $profile->adresses()->save($adresse);
-                $profile->adresses()->save($adresse2);
+                $profile->adresses()->save($address);
+                $profile->adresses()->save($address2);
             }
 
             return $u;
@@ -158,9 +158,9 @@ class AuthController extends Controller
             $profile = new Profile();
             $profile->type = 'client';
             auth()->user()->profile()->save($profile);
-            $adresse = new Adresse();
+            $adresse = new Address();
             $adresse->type = 'pro';
-            $adresse2 = new Adresse();
+            $adresse2 = new Address();
             $adresse2->type = 'per';
             $profile = auth()->user()->profile()->first();
             $profile->adresses()->save($adresse);
@@ -182,7 +182,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(User::with(['profile.adresses'])->find(auth()->user()->id));
+        return response()->json(User::with(['profile.addresses'])->find(auth()->user()->id));
     }
 
     /**

@@ -8,158 +8,158 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-		Schema::table('profile', function(Blueprint $table) {
-			$table->foreign('user_id')->references('id')->on('profile')
+		Schema::table('profiles', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('addresses', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
-			$table->foreign('ville_id')->references('id')->on('villes')
+		Schema::table('addresses', function(Blueprint $table) {
+			$table->foreign('city_id')->references('id')->on('cities')
 						->onDelete('set null')
 						->onUpdate('set null');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
+		Schema::table('addresses', function(Blueprint $table) {
 			$table->foreign('region_id')->references('id')->on('regions')
 						->onDelete('set null')
 						->onUpdate('set null');
 		});
-		Schema::table('commande', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('orders', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->foreign('categorie_id')->references('id')->on('categorie')
+		Schema::table('products', function(Blueprint $table) {
+			$table->foreign('category_id')->references('id')->on('categories')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->foreign('sousCategorie_id')->references('id')->on('sousCategorie')
+		Schema::table('products', function(Blueprint $table) {
+			$table->foreign('subCategory_id')->references('id')->on('subCategories')
 						->onDelete('set null')
 						->onUpdate('cascade');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->foreign('marque_id')->references('id')->on('marque')
+		Schema::table('products', function(Blueprint $table) {
+			$table->foreign('brand_id')->references('id')->on('brands')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->foreign('reduction_id')->references('id')->on('reduction')
+		Schema::table('products', function(Blueprint $table) {
+			$table->foreign('discount_id')->references('id')->on('discounts')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('article', function(Blueprint $table) {
-			$table->foreign('produit_id')->references('id')->on('produit')
+		Schema::table('articles', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('image', function(Blueprint $table) {
-			$table->foreign('article_id')->references('id')->on('article')
+		Schema::table('images', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('sousCategorie', function(Blueprint $table) {
-			$table->foreign('categorie_id')->references('id')->on('categorie')
+		Schema::table('subCategories', function(Blueprint $table) {
+			$table->foreign('category_id')->references('id')->on('categories')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->foreign('commande_id')->references('id')->on('commande')
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->foreign('order_id')->references('id')->on('orders')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->foreign('produit_id')->references('id')->on('produit')
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('color_article', function(Blueprint $table) {
-			$table->foreign('color_id')->references('id')->on('color')
+		Schema::table('color_articles', function(Blueprint $table) {
+			$table->foreign('color_id')->references('id')->on('colors')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('color_article', function(Blueprint $table) {
-			$table->foreign('article_id')->references('id')->on('article')
+		Schema::table('color_articles', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('matiere_article', function(Blueprint $table) {
-			$table->foreign('article_id')->references('id')->on('article')
+		Schema::table('material_articles', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('matiere_article', function(Blueprint $table) {
-			$table->foreign('matiere_id')->references('id')->on('matiere')
+		Schema::table('material_articles', function(Blueprint $table) {
+			$table->foreign('material_id')->references('id')->on('materials')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('wishlist', function(Blueprint $table) {
-			$table->foreign('produit_id')->references('id')->on('produit')
+		Schema::table('wishlists', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('wishlist', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('wishlists', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('compare', function(Blueprint $table) {
-			$table->foreign('produit_id')->references('id')->on('produit')
+		Schema::table('compares', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('compare', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('compares', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('avis', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('reviews', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('avis', function(Blueprint $table) {
-			$table->foreign('produit_id')->references('id')->on('produit')
+		Schema::table('reviews', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('tarif', function(Blueprint $table) {
-			$table->foreign('typeLivraison_id')->references('id')->on('typeLivraison')
+		Schema::table('rates', function(Blueprint $table) {
+			$table->foreign('deliveryType_id')->references('id')->on('delivery_types')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('tarif', function(Blueprint $table) {
-			$table->foreign('ville_id')->references('id')->on('villes')
+		Schema::table('rates', function(Blueprint $table) {
+			$table->foreign('city_id')->references('id')->on('cities')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('paiement', function(Blueprint $table) {
-			$table->foreign('profile_id')->references('id')->on('profile')
+		Schema::table('payments', function(Blueprint $table) {
+			$table->foreign('profile_id')->references('id')->on('profiles')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('paiement', function(Blueprint $table) {
-			$table->foreign('commande_id')->references('id')->on('commande')
+		Schema::table('payments', function(Blueprint $table) {
+			$table->foreign('order_id')->references('id')->on('orders')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('livraison', function(Blueprint $table) {
-			$table->foreign('typeLivraison_id')->references('id')->on('typeLivraison')
+		Schema::table('deliveries', function(Blueprint $table) {
+			$table->foreign('deliveryType_id')->references('id')->on('delivery_types')
 						->onDelete('set null')
 						->onUpdate('set null');
 		});
-		Schema::table('livraison', function(Blueprint $table) {
-			$table->foreign('commande_id')->references('id')->on('commande')
+		Schema::table('deliveries', function(Blueprint $table) {
+			$table->foreign('order_id')->references('id')->on('orders')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -177,98 +177,98 @@ class CreateForeignKeys extends Migration {
 
 	public function down()
 	{
-		Schema::table('profile', function(Blueprint $table) {
+		Schema::table('profiles', function(Blueprint $table) {
 			$table->dropForeign('profile_user_id_foreign');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
-			$table->dropForeign('adresse_profile_id_foreign');
+		Schema::table('addresses', function(Blueprint $table) {
+			$table->dropForeign('address_profile_id_foreign');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
-			$table->dropForeign('adresse_ville_id_foreign');
+		Schema::table('addresses', function(Blueprint $table) {
+			$table->dropForeign('address_city_id_foreign');
 		});
-		Schema::table('adresse', function(Blueprint $table) {
-			$table->dropForeign('adresse_region_id_foreign');
+		Schema::table('addresses', function(Blueprint $table) {
+			$table->dropForeign('address_region_id_foreign');
 		});
-		Schema::table('commande', function(Blueprint $table) {
-			$table->dropForeign('commande_profile_id_foreign');
+		Schema::table('orders', function(Blueprint $table) {
+			$table->dropForeign('order_profile_id_foreign');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->dropForeign('produit_categorie_id_foreign');
+		Schema::table('products', function(Blueprint $table) {
+			$table->dropForeign('product_category_id_foreign');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->dropForeign('produit_sousCategorie_id_foreign');
+		Schema::table('products', function(Blueprint $table) {
+			$table->dropForeign('product_subCategory_id_foreign');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->dropForeign('produit_marque_id_foreign');
+		Schema::table('products', function(Blueprint $table) {
+			$table->dropForeign('product_brand_id_foreign');
 		});
-		Schema::table('produit', function(Blueprint $table) {
-			$table->dropForeign('produit_reduction_id_foreign');
+		Schema::table('products', function(Blueprint $table) {
+			$table->dropForeign('product_discount_id_foreign');
 		});
-		Schema::table('article', function(Blueprint $table) {
-			$table->dropForeign('article_produit_id_foreign');
+		Schema::table('articles', function(Blueprint $table) {
+			$table->dropForeign('article_product_id_foreign');
 		});
-		Schema::table('image', function(Blueprint $table) {
+		Schema::table('images', function(Blueprint $table) {
 			$table->dropForeign('image_article_id_foreign');
 		});
-		Schema::table('sousCategorie', function(Blueprint $table) {
-			$table->dropForeign('sousCategorie_categorie_id_foreign');
+		Schema::table('sub_categories', function(Blueprint $table) {
+			$table->dropForeign('sub_category_category_id_foreign');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->dropForeign('ligneCommande_commande_id_foreign');
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->dropForeign('line_order_order_id_foreign');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->dropForeign('ligneCommande_produit_id_foreign');
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->dropForeign('line_order_product_id_foreign');
 		});
-		Schema::table('ligneCommande', function(Blueprint $table) {
-			$table->dropForeign('ligneCommande_profile_id_foreign');
+		Schema::table('line_orders', function(Blueprint $table) {
+			$table->dropForeign('line_order_profile_id_foreign');
 		});
-		Schema::table('color_article', function(Blueprint $table) {
+		Schema::table('color_articles', function(Blueprint $table) {
 			$table->dropForeign('color_article_color_id_foreign');
 		});
-		Schema::table('color_article', function(Blueprint $table) {
+		Schema::table('color_articles', function(Blueprint $table) {
 			$table->dropForeign('color_article_article_id_foreign');
 		});
-		Schema::table('matiere_article', function(Blueprint $table) {
-			$table->dropForeign('matiere_article_article_id_foreign');
+		Schema::table('material_articles', function(Blueprint $table) {
+			$table->dropForeign('material_article_article_id_foreign');
 		});
-		Schema::table('matiere_article', function(Blueprint $table) {
-			$table->dropForeign('matiere_article_matiere_id_foreign');
+		Schema::table('material_articles', function(Blueprint $table) {
+			$table->dropForeign('material_article_material_id_foreign');
 		});
-		Schema::table('wishlist', function(Blueprint $table) {
-			$table->dropForeign('wishlist_produit_id_foreign');
+		Schema::table('wishlists', function(Blueprint $table) {
+			$table->dropForeign('wishlist_product_id_foreign');
 		});
-		Schema::table('wishlist', function(Blueprint $table) {
+		Schema::table('wishlists', function(Blueprint $table) {
 			$table->dropForeign('wishlist_profile_id_foreign');
 		});
-		Schema::table('compare', function(Blueprint $table) {
-			$table->dropForeign('compare_produit_id_foreign');
+		Schema::table('compares', function(Blueprint $table) {
+			$table->dropForeign('compare_product_id_foreign');
 		});
-		Schema::table('compare', function(Blueprint $table) {
+		Schema::table('compares', function(Blueprint $table) {
 			$table->dropForeign('compare_profile_id_foreign');
 		});
-		Schema::table('avis', function(Blueprint $table) {
-			$table->dropForeign('avis_profile_id_foreign');
+		Schema::table('reviews', function(Blueprint $table) {
+			$table->dropForeign('review_profile_id_foreign');
 		});
-		Schema::table('avis', function(Blueprint $table) {
-			$table->dropForeign('avis_produit_id_foreign');
+		Schema::table('reviews', function(Blueprint $table) {
+			$table->dropForeign('review_product_id_foreign');
 		});
-		Schema::table('tarif', function(Blueprint $table) {
-			$table->dropForeign('tarif_typeLivraison_id_foreign');
+		Schema::table('rates', function(Blueprint $table) {
+			$table->dropForeign('rate_deliveryType_id_foreign');
 		});
-		Schema::table('tarif', function(Blueprint $table) {
-			$table->dropForeign('tarif_ville_id_foreign');
+		Schema::table('rates', function(Blueprint $table) {
+			$table->dropForeign('rate_city_id_foreign');
 		});
-		Schema::table('paiement', function(Blueprint $table) {
-			$table->dropForeign('paiement_profile_id_foreign');
+		Schema::table('payments', function(Blueprint $table) {
+			$table->dropForeign('payment_profile_id_foreign');
 		});
-		Schema::table('paiement', function(Blueprint $table) {
-			$table->dropForeign('paiement_commande_id_foreign');
+		Schema::table('payments', function(Blueprint $table) {
+			$table->dropForeign('payment_order_id_foreign');
 		});
-		Schema::table('livraison', function(Blueprint $table) {
-			$table->dropForeign('livraison_typeLivraison_id_foreign');
+		Schema::table('deliveries', function(Blueprint $table) {
+			$table->dropForeign('delivery_deliveryType_id_foreign');
 		});
-		Schema::table('livraison', function(Blueprint $table) {
-			$table->dropForeign('livraison_commande_id_foreign');
+		Schema::table('deliveries', function(Blueprint $table) {
+			$table->dropForeign('delivery_order_id_foreign');
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->dropForeign('role_user_role_id_foreign');

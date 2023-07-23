@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\models\InfoSite;
+use App\Models\InfoSite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -23,14 +23,14 @@ class InfoSiteController extends Controller
     {
         $input = $request->all();
         $info = InfoSite::all()->first();
-        $info->tele = $input['tele'];
+        $info->tel = $input['tel'];
         $info->name = $input['name'];
         $info->fax = $input['fax'];
-        $info->adresse = $input['adresse'];
+        $info->address = $input['address'];
         $info->x = $input['x'];
         $info->y = $input['y'];
-        $info->debutDeService = $input['debutDeService'];
-        $info->finDeService = $input['finDeService'];
+        $info->serviceStart = $input['serviceStart'];
+        $info->serviceEnd = $input['serviceEnd'];
         $info->email = $input['email'];
         $info->save();
 

@@ -37,32 +37,32 @@ Route::group([
     Route::post('SR', 'RegionController@save');
     Route::delete('DR/{id}', 'RegionController@delete');
 
-    Route::get('GACAT', 'categorieController@getCategories');
-    Route::put('UCAT', 'categorieController@update');
-    Route::post('SCAT', 'categorieController@save');
-    Route::delete('DCAT/{id}', 'categorieController@delete');
+    Route::get('GACAT', 'CategoryController@getCategories');
+    Route::put('UCAT', 'CategoryController@update');
+    Route::post('SCAT', 'CategoryController@save');
+    Route::delete('DCAT/{id}', 'CategoryController@delete');
 
-    Route::get('GASCAT', 'SousCategorieController@getSousCategories');
-    Route::put('USCAT', 'SousCategorieController@update');
-    Route::post('SSCAT', 'SousCategorieController@save');
-    Route::delete('DSCAT/{id}', 'SousCategorieController@delete');
+    Route::get('GASCAT', 'SubCategoryController@getSubCategories');
+    Route::put('USCAT', 'SubCategoryController@update');
+    Route::post('SSCAT', 'SubCategoryController@save');
+    Route::delete('DSCAT/{id}', 'SubCategoryController@delete');
 
-    Route::get('GAMAR', 'MarqueController@getMarques');
-    Route::put('UMAR', 'MarqueController@update');
-    Route::post('SMAR', 'MarqueController@save');
-    Route::delete('DMAR/{id}', 'MarqueController@delete');
+    Route::get('GAMAR', 'BrandController@getBrands');
+    Route::put('UMAR', 'BrandController@update');
+    Route::post('SMAR', 'BrandController@save');
+    Route::delete('DMAR/{id}', 'BrandController@delete');
 
-    Route::get('GAPRODBID/{id}', 'ProduitController@getById');
-    Route::get('GAPRODBLID', 'ProduitController@getByListId');
-    Route::get('GAPRODNA', 'ProduitController@getNewArivale');
-    Route::get('GAPRODOS', 'ProduitController@getOnSale');
-    Route::get('GAPRODBN', 'ProduitController@getByName');
-    Route::get('GAPRODBLIDWP', 'ProduitController@getByListIdWithoutPaginator');
-    Route::get('GAPROD', 'ProduitController@get');
-    Route::put('UPROD', 'ProduitController@update');
-    Route::post('SPROD', 'ProduitController@save');
-    Route::delete('DPROD/{id}', 'ProduitController@delete');
-    Route::delete('DIPROD/{id}/{name}', 'ProduitController@deleteImage');
+    Route::get('GAPRODBID/{id}', 'ProductController@getById');
+    Route::get('GAPRODBLID', 'ProductController@getByListId');
+    Route::get('GAPRODNA', 'ProductController@getNewArrival');
+    Route::get('GAPRODOS', 'ProductController@getOnSale');
+    Route::get('GAPRODBN', 'ProductController@getByName');
+    Route::get('GAPRODBLIDWP', 'ProductController@getByListIdWithoutPaginator');
+    Route::get('GAPROD', 'ProductController@get');
+    Route::put('UPROD', 'ProductController@update');
+    Route::post('SPROD', 'ProductController@save');
+    Route::delete('DPROD/{id}', 'ProductController@delete');
+    Route::delete('DIPROD/{id}/{name}', 'ProductController@deleteImage');
 
     Route::get('GACOL', 'ColorController@getColors');
     Route::put('UCOL', 'ColorController@update');
@@ -70,36 +70,36 @@ Route::group([
     Route::delete('DCOL/{id}', 'ColorController@delete');
 
 
-    Route::get('GARED', 'reductionController@get');
-    Route::put('URED', 'reductionController@update');
-    Route::post('SRED', 'reductionController@save');
-    Route::delete('DRED/{id}', 'reductionController@delete');
+    Route::get('GARED', 'DiscountController@get');
+    Route::put('URED', 'DiscountController@update');
+    Route::post('SRED', 'DiscountController@save');
+    Route::delete('DRED/{id}', 'DiscountController@delete');
 
-    Route::get('GACMDA', 'CommandeAdminController@get');
-    Route::put('UCMDA', 'CommandeAdminController@update');
-    Route::delete('DCMDA/{id}', 'CommandeAdminController@delete');
-    Route::get('GCMDA/{id}', 'CommandeAdminController@getById');
+    Route::get('GACMDA', 'OrderAdminController@get');
+    Route::put('UCMDA', 'OrderAdminController@update');
+    Route::delete('DCMDA/{id}', 'OrderAdminController@delete');
+    Route::get('GCMDA/{id}', 'OrderAdminController@getById');
 
 
-    Route::get('GACMD', 'CommandeController@get');
-    Route::post('SCMD', 'CommandeController@saveCash');
+    Route::get('GACMD', 'OrderController@get');
+    Route::post('SCMD', 'OrderController@saveCash');
 
-    Route::get('GATL', 'typeLivraisonController@get');
-    Route::put('UTL', 'typeLivraisonController@update');
-    Route::post('STL', 'typeLivraisonController@save');
-    Route::delete('DTL/{id}', 'typeLivraisonController@delete');
+    Route::get('GATL', 'DeliveryTypeController@get');
+    Route::put('UTL', 'DeliveryTypeController@update');
+    Route::post('STL', 'DeliveryTypeController@save');
+    Route::delete('DTL/{id}', 'DeliveryTypeController@delete');
 
-    Route::get('GACT', 'ActualiteController@get');
-    Route::get('GAACT', 'ActualiteController@getAll');
-    Route::put('UACT', 'ActualiteController@update');
-    Route::post('SACT', 'ActualiteController@save');
-    Route::delete('DACT/{id}', 'ActualiteController@delete');
+    Route::get('GACT', 'NewsController@get');
+    Route::get('GAACT', 'NewsController@getAll');
+    Route::put('UACT', 'NewsController@update');
+    Route::post('SACT', 'NewsController@save');
+    Route::delete('DACT/{id}', 'NewsController@delete');
 
-    Route::get('GATAR/{id}', 'tarifController@get');
-    Route::get('GTAR', 'tarifController@get2');
-    Route::put('UTAR', 'tarifController@update');
-    Route::post('STAR', 'tarifController@save');
-    Route::delete('DTAR/{id}', 'tarifController@delete');
+    Route::get('GATAR/{id}', 'rateController@get');
+    Route::get('GTAR', 'rateController@get2');
+    Route::put('UTAR', 'rateController@update');
+    Route::post('STAR', 'rateController@save');
+    Route::delete('DTAR/{id}', 'rateController@delete');
 
 
     Route::get('GAPWL', 'wishlistController@get');
@@ -121,16 +121,16 @@ Route::group([
     Route::delete('DAPSC', 'shoppingCartController@deleteAll');
 
 
-    Route::get('GAMAT', 'MatiereController@getMatieres');
-    Route::put('UMAT', 'MatiereController@update');
-    Route::post('SMAT', 'MatiereController@save');
-    Route::delete('DMAT/{id}', 'MatiereController@delete');
+    Route::get('GAMAT', 'MaterialController@getMaterials');
+    Route::put('UMAT', 'MaterialController@update');
+    Route::post('SMAT', 'MaterialController@save');
+    Route::delete('DMAT/{id}', 'MaterialController@delete');
 
 
-    Route::get('GAV', 'VilleController@getVilles');
-    Route::put('UV', 'VilleController@update');
-    Route::post('SV', 'VilleController@save');
-    Route::delete('DV/{id}', 'VilleController@delete');
+    Route::get('GAV', 'CityController@getCities');
+    Route::put('UV', 'CityController@update');
+    Route::post('SV', 'CityController@save');
+    Route::delete('DV/{id}', 'CityController@delete');
 
     Route::get('GP', 'ProfileController@get');
     Route::put('UP', 'ProfileController@update');
@@ -139,10 +139,10 @@ Route::group([
 
     Route::post('SC', 'contactController@sendContact');
 
-    Route::get('GA', 'AdresseController@get');
-    Route::get('GAPer', 'AdresseController@getAPer');
-    Route::get('GAPro', 'AdresseController@getAPro');
-    Route::put('UA', 'AdresseController@update');
+    Route::get('GA', 'AddressController@get');
+    Route::get('GAPer', 'AddressController@getAPer');
+    Route::get('GAPro', 'AddressController@getAPro');
+    Route::put('UA', 'AddressController@update');
 
 
 });

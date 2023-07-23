@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
-use App\models\Profile;
+use App\Models\Profile;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -22,8 +22,8 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $profile = $user->profile()->first();
-        $adresses = $profile->adresses()->get();
-        $profile->adresses = $adresses;
+        $addresses = $profile->addresses()->get();
+        $profile->addresses = $addresses;
         $user->profile = $profile;
         return response()->json($user);
     }
@@ -34,7 +34,7 @@ class ProfileController extends Controller
         $user = User::findOrFail($input['id']);
         $user->email = $input['email'];
         $profile = Profile::findOrFail($input['profile']['id']);
-        $profile->sexe = $input['profile']['sexe'];
+        $profile->sex = $input['profile']['sex'];
         $profile->dateN = date('Y-m-d', strtotime(str_replace('-', '/', $input['profile']['dateN'])));
 
         $user->save();
@@ -49,11 +49,11 @@ class ProfileController extends Controller
         $input = $request->all();
         $user = auth()->user();
         if (!Hash::check($input["oldPassword"], $user->password))
-            return response()->json(['Error' => 'password Inccorrect'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json(['Error' => 'password Incorrect'], Response::HTTP_UNPROCESSABLE_ENTITY);
 
         $user->update(['password' => $input["password"]]);
 
-        return response()->json(['Success' => 'password change avec succe'], Response::HTTP_CREATED);
+        return response()->json(['Success' => 'password change success'], Response::HTTP_CREATED);
     }
 
     /**

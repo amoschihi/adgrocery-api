@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\models\Profile;
+use App\Models\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;

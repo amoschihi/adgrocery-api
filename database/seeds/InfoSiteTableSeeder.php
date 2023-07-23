@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\models\InfoSite;
+use App\Models\InfoSite;
 
 class InfoSiteTableSeeder extends Seeder
 {
@@ -13,15 +13,15 @@ class InfoSiteTableSeeder extends Seeder
     public function run()
     {
         InfoSite::create(array(
-            'tele' => '+212 6 61 50 30 43',
-            'name' => 'Palais Damasquini',
-            'fax' => '+212 5 35 53 35 02',
-            'adresse' => 'N° 10 Kobt Souk Kissariat Lahrir - Meknès',
-            'debutDeService' => '08:00 AM',
-            'finDeService' => '18:00 AM',
-            'email' => 'palaisdamasquini@gmail.com',
-            'x' => '33.8954655',
-            'y' => '-5.5568128'
+            'tel' => '+1 205 902 292',
+            'name' => 'A&D GROCERY',
+            'fax' => '+1 205 902 292',
+            'address' => 'Sioux Falls, South Dakota',
+            'serviceStart' => '08:00 AM',
+            'serviceEnd' => '6:00 PM',
+            'email' => 'info@adgrocery.com',
+            'x' => '43.545854840088666',
+            'y' => '-96.73085511741644'
         ));
     }
 }

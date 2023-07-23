@@ -1,10 +1,10 @@
 <?php
 
-use App\models\Adresse;
+use App\Models\Address;
 use Illuminate\Database\Seeder;
 use App\Role;
 use App\User;
-use App\models\Profile;
+use App\Models\Profile;
 
 class UserTableSeeder extends Seeder
 {
@@ -27,13 +27,13 @@ class UserTableSeeder extends Seeder
         $client->save();
         $client->roles()->attach($role_client);
         $client->profile()->save($profile);
-        $adresse = new Adresse();
+        $adresse = new Address();
         $adresse->type = 'pro';
-        $adresse2 = new Adresse();
+        $adresse2 = new Address();
         $adresse2->type = 'per';
         $profile = $client->profile()->first();
-        $profile->adresses()->save($adresse);
-        $profile->adresses()->save($adresse2);
+        $profile->addresses()->save($adresse);
+        $profile->addresses()->save($adresse2);
 
         $profile2 = new Profile();
         $profile2->type = 'admin';
@@ -44,12 +44,12 @@ class UserTableSeeder extends Seeder
         $admin->save();
         $admin->roles()->attach($role_admin);
         $admin->profile()->save($profile2);
-        $adresse = new Adresse();
+        $adresse = new Address();
         $adresse->type = 'pro';
-        $adresse2 = new Adresse();
+        $adresse2 = new Address();
         $adresse2->type = 'per';
         $profile = $admin->profile()->first();
-        $profile->adresses()->save($adresse);
-        $profile->adresses()->save($adresse2);
+        $profile->addresses()->save($adresse);
+        $profile->addresses()->save($adresse2);
     }
 }
