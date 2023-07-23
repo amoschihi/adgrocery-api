@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Color extends Model
 {
 
-    protected $table = 'color';
+    protected $table = 'colors';
     public $timestamps = true;
 
     public function articles()

@@ -61,7 +61,7 @@ class OrderController extends Controller
             $payment->profile_id = $profile->id;
             $order->payment()->save($payment);
 
-            $line_orders = $input['line_orders'];
+            $line_orders = $input['lineOrders'];
 
             foreach ($line_orders as $line_order) {
                 $lc = LineOrder::find($line_order['id']);

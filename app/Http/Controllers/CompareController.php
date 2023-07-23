@@ -24,7 +24,7 @@ class compareController extends Controller
     {
         $user = auth()->user();
         $profile = $user->profile()->first();
-        $res = $profile->produitsCompare()->sync($request->ids);
+        $res = $profile->productsCompare()->sync($request->ids);
         if ($res['attached']) {
             return response()->json($res, Response::HTTP_OK);
         } else {
@@ -37,7 +37,7 @@ class compareController extends Controller
         $res = DB::transaction(function () use ($request) {
             $user = auth()->user();
             $profile = $user->profile()->first();
-            return $profile->produitsCompare()->toggle([$request->id]);
+            return $profile->productsCompare()->toggle([$request->id]);
         });
         return response()->json($res, Response::HTTP_OK);
 
